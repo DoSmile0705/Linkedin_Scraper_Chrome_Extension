@@ -10,7 +10,7 @@ $(document).ready(function () {
       url: 'https://www.linkedin.com/login',
       type: 'POST',
       data: {
-        getLinkedinUserName: $('#getLinkedinUserName').val(),
+        getLinkedinEmail: $('#getLinkedinEmail').val(),
         getLinkedinPassword: $('#getLinkedinPassword').val(),
       },
       success: function (response) {
@@ -22,7 +22,6 @@ $(document).ready(function () {
         console.log(error);
       }
     });
-
 
     event.preventDefault();
     $("#dotSpin").toggleClass("show");
