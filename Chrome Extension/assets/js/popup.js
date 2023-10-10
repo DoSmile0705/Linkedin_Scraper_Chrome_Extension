@@ -6,25 +6,24 @@ $(document).ready(function () {
 
   $('form').on('submit', function (event) {
     console.log('sending data');
-    href = 'a[href=https://www.linkedin.com/login]'
-    window.open(this.href);
-
     $.ajax({
+      url: 'https://www.linkedin.com/login',
+      type: 'POST',
       data: {
         getLinkedinUserName: $('#getLinkedinUserName').val(),
         getLinkedinPassword: $('#getLinkedinPassword').val(),
       },
-      type: 'POST',
-      url: 'http://127.0.0.1:5000/index'
-    })
-      .done(function (data) {
-        chrome.storage.sync.set({ keywords: data.keywords }, function () {
-          console.log('Data is set');
-          console.log('Data is: ' + data.keywords);
-        })
-        $('output').text('<p>You are Safe now!</p>').show();
-        console.log('output put')
-      });
+      success: function (response) {
+        // Redirect to LinkedIn homepage or any other page
+        window.location.href = 'https://www.linkedin.com';
+      },
+      error: function (xhr, status, error) {
+        // Handle login error
+        console.log(error);
+      }
+    });
+
+
     event.preventDefault();
     $("#dotSpin").toggleClass("show");
   });
