@@ -98,7 +98,7 @@ h4 {
   justify-content: space-around;
 }
 
-#getLinkedinUserName {
+#getLinkedinEmail {
   width: 100px;
   height: 25px;
   border-radius: 5px;
@@ -106,7 +106,7 @@ h4 {
   outline: none;
 }
 
-#getLinkedinUserName:focus {
+#getLinkedinEmail:focus {
   border: 1px solid rgb(43 151 241);
   box-shadow: 0 0 10px rgb(43 151 241);
 }
